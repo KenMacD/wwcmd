@@ -2,7 +2,7 @@ use strict;
 use vars qw($VERSION %IRSSI);
 
 use Irssi;
-$VERSION = '20111004';
+$VERSION = '20111011';
 %IRSSI = (
     authors     => 'Kenny MacDermid',
     contact     => 'kenny.macdermid@gmail.com',
@@ -16,15 +16,15 @@ my $have_last = 0;
 my $ignore_once = 0;
 my @cmds;
 
-push(@cmds, qr/^win /);
-push(@cmds, qr/^win$/);
-push(@cmds, qr/^ls/);
-push(@cmds, qr/^:q/);
-push(@cmds, qr/^:wq/);
+push(@cmds, qr/^\s*win /);
+push(@cmds, qr/^\s*win$/);
+push(@cmds, qr/^\s*ls/);
+push(@cmds, qr/^\s*:q/);
+push(@cmds, qr/^\s*:wq/);
 for my $cmd (Irssi::commands()) {
     my $c = $cmd->{cmd};
-    push(@cmds, qr/^$c$/);
-    push(@cmds, qr/^$c /);
+    push(@cmds, qr/^\s*$c$/);
+    push(@cmds, qr/^\s*$c /);
 }
 
 sub send_text {
