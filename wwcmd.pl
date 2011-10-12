@@ -16,6 +16,7 @@ my $have_last = 0;
 my $ignore_once = 0;
 my @cmds;
 
+push(@cmds, qr/^\s+\//);
 push(@cmds, qr/^\s*win /);
 push(@cmds, qr/^\s*win$/);
 push(@cmds, qr/^\s*ls/);
